@@ -27,7 +27,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/base.dae" />
+          filename="file://$(find go2_description)/dae/base.dae" />
       </geometry>
       <material
         name="">
@@ -42,6 +42,21 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
+  <link
+    name="odom">
+  </link>
+  <joint
+    name="odom_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="odom" />
+    <child
+      link="base_link" />
+  </joint>
+      
   <link
     name="Head_upper">
     <inertial>
@@ -80,6 +95,32 @@ Stephen Brawner (brawner@gmail.com)
     <axis
       xyz="0 0 0" />
   </joint>
+  <!-- <link
+    name="Front_camera">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.01" />
+      </geometry>
+      <material name="camera_color">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_camera_joint"
+    type="fixed">
+    <origin xyz="0.045 0 0.03" rpy="-1.5708 0 -1.5708" />
+    <parent link="Head_upper" />
+    <child link="Front_camera" />
+    <axis xyz="0 0 0" />
+  </joint> -->
   <link
     name="Head_lower">
     <inertial>
@@ -140,7 +181,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/hip.dae" />
+          filename="file://$(find go2_description)/dae/hip.dae" />
       </geometry>
       <material
         name="">
@@ -195,7 +236,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/thigh.dae" />
+          filename="file://$(find go2_description)/dae/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -250,7 +291,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/calf.dae" />
+          filename="file://$(find go2_description)/dae/calf.dae" />
       </geometry>
       <material
         name="">
@@ -349,7 +390,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/foot.dae" />
+          filename="file://$(find go2_description)/dae/foot.dae" />
       </geometry>
       <material
         name="">
@@ -399,7 +440,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/hip.dae" />
+          filename="file://$(find go2_description)/dae/hip.dae" />
       </geometry>
       <material
         name="">
@@ -454,7 +495,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/thigh_mirror.dae" />
+          filename="file://$(find go2_description)/dae/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -509,7 +550,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/calf_mirror.dae" />
+          filename="file://$(find go2_description)/dae/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -608,7 +649,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/foot.dae" />
+          filename="file://$(find go2_description)/dae/foot.dae" />
       </geometry>
       <material
         name="">
@@ -658,7 +699,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 3.1415 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/hip.dae" />
+          filename="file://$(find go2_description)/dae/hip.dae" />
       </geometry>
       <material
         name="">
@@ -713,7 +754,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/thigh.dae" />
+          filename="file://$(find go2_description)/dae/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -768,7 +809,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/calf.dae" />
+          filename="file://$(find go2_description)/dae/calf.dae" />
       </geometry>
       <material
         name="">
@@ -867,7 +908,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/foot.dae" />
+          filename="file://$(find go2_description)/dae/foot.dae" />
       </geometry>
       <material
         name="">
@@ -917,7 +958,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 3.1415 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/hip.dae" />
+          filename="file://$(find go2_description)/dae/hip.dae" />
       </geometry>
       <material
         name="">
@@ -972,7 +1013,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/thigh_mirror.dae" />
+          filename="file://$(find go2_description)/dae/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1027,7 +1068,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/calf_mirror.dae" />
+          filename="file://$(find go2_description)/dae/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1126,7 +1167,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://go2_description/dae/foot.dae" />
+          filename="file://$(find go2_description)/dae/foot.dae" />
       </geometry>
       <material
         name="">
@@ -1213,5 +1254,105 @@ Stephen Brawner (brawner@gmail.com)
       link="radar" />
     <axis
       xyz="0 0 0" />
+  </joint>
+  <!-- Realsense Camera -->
+   <link name="camera_support_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.01" />
+      </geometry>
+      <material name="camera_support_color">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_support_link_joint" type="fixed">
+    <origin xyz="0.29 0 0.04" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera_support_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.01" />
+      </geometry>
+      <material name="camera_color">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+      <!-- <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.1" />
+        <inertia  ixx="7.5e-06" ixy="0.0" ixz="0.0" iyy="5.234999999999999e-05" iyz="0.0" izz="5.234999999999999e-05"/>
+      </inertial>    -->
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_link_joint" type="fixed">
+    <origin xyz="0.04 0 0.18" rpy="0 0 0" />
+    <parent link="camera_support_link" />
+    <child link="camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="camera_optical_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.01" />
+      </geometry>
+      <material name="camera_optical_color">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_optical_link_joint" type="fixed">
+    <origin xyz="0.012 0 0" rpy="-1.5708 0 -1.5708" />
+    <parent link="camera_link" />
+    <child link="camera_optical_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- hesai_lidar link and joint -->
+  <link name="hesai_lidar">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+      <material name="lidar_color">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hesai_lidar_joint" type="fixed">
+    <origin xyz="0.15 0 0.08" rpy="0 0 1.5708" />
+    <parent link="base_link" />
+    <child link="hesai_lidar" />
+    <axis xyz="0 0 0" />
   </joint>
 </robot>
