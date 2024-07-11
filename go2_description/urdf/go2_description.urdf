@@ -1248,7 +1248,7 @@ Stephen Brawner (brawner@gmail.com)
     </collision>
   </link>
   <joint name="camera_support_link_joint" type="fixed">
-    <origin xyz="0.29 0 0.04" rpy="0 0 0" />
+    <origin xyz="0.29 0 0.0958" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="camera_support_link" />
     <axis xyz="0 0 0" />
@@ -1262,11 +1262,6 @@ Stephen Brawner (brawner@gmail.com)
       <material name="camera_color">
         <color rgba="0.1 0.1 0.1 1" />
       </material>
-      <!-- <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <mass value="0.1" />
-        <inertia  ixx="7.5e-06" ixy="0.0" ixz="0.0" iyy="5.234999999999999e-05" iyz="0.0" izz="5.234999999999999e-05"/>
-      </inertial>    -->
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -1276,7 +1271,7 @@ Stephen Brawner (brawner@gmail.com)
     </collision>
   </link>
   <joint name="camera_link_joint" type="fixed">
-    <origin xyz="0.04 0 0.18" rpy="0 0 0" />
+    <origin xyz="0.04 0.03 0.018" rpy="0 -0.04 0" />
     <parent link="camera_support_link" />
     <child link="camera_link" />
     <axis xyz="0 0 0" />
@@ -1324,7 +1319,7 @@ Stephen Brawner (brawner@gmail.com)
     </collision>
   </link>
   <joint name="hesai_lidar_joint" type="fixed">
-    <origin xyz="0.15 0 0.08" rpy="0 0 1.5708" />
+    <origin xyz="0.15 0 0.12" rpy="0 0 1.5708" />
     <parent link="base_link" />
     <child link="hesai_lidar" />
     <axis xyz="0 0 0" />
