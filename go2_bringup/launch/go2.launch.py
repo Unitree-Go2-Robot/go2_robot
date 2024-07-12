@@ -32,21 +32,27 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.conditions import IfCondition
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    lidar = LaunchConfiguration('lidar')
+    lidar_hesai = LaunchConfiguration('lidar_hesai')
+    lidar_livox = LaunchConfiguration('lidar_livox')
     realsense = LaunchConfiguration('realsense')
     rviz = LaunchConfiguration('rviz')
 
-    declare_lidar_cmd = DeclareLaunchArgument(
-        'lidar',
+    declare_lidar_hesai_cmd = DeclareLaunchArgument(
+        'lidar_hesai',
         default_value='False',
-        description='Launch hesai lidar driver'
+        description='Launch Hesai lidar driver'
+    )
+
+    declare_lidar_livox_cmd = DeclareLaunchArgument(
+        'lidar_livox',
+        default_value='False',
+        description='Launch Livox MID 360 lidar driver'
     )
 
     declare_realsense_cmd = DeclareLaunchArgument(
@@ -61,47 +67,66 @@ def generate_launch_description():
         description='Launch rviz'
     )
 
-    robot_description_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('go2_description'),
-            'launch/'), 'robot.launch.py'])
-    )
+    def get_robot_description(context):
+        return [IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([os.path.join(
+                get_package_share_directory('go2_description'),
+                'launch', 'robot.launch.py')])
+        )]
 
-    driver_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('go2_driver'),
-            'launch/'), 'go2_driver.launch.py'])
-    )
+    def get_driver_cmd(context):
+        return [IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([os.path.join(
+                get_package_share_directory('go2_driver'),
+                'launch', 'go2_driver.launch.py')])
+        )]
+    
+    def get_lidar_hesai_cmd(context):
+        if context.perform_substitution(lidar_hesai) == 'True':
+            return [IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('hesai_ros_driver'),
+                    'launch', 'start.launch.py')])
+            )]
+        return []
+    
+    def get_lidar_livox_cmd(context):
+        if context.perform_substitution(lidar_livox) == 'True':
+            return [IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('livox_ros_driver2'),
+                    'launch_ROS2', 'rviz_MID360_launch.launch.py')])
+            )]
+        return []
 
-    lidar_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('hesai_ros_driver'),
-            'launch/'), 'start.py']),
-        condition=IfCondition(PythonExpression([lidar]))
-    )
+    def get_realsense_cmd(context):
+        if context.perform_substitution(realsense) == 'True':
+            return [IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('realsense2_camera'),
+                    'launch', 'rs_launch.py')])
+            )]
+        return []
 
-    realsense_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('realsense2_camera'),
-            'launch/'), 'rs_launch.py']),
-        condition=IfCondition(PythonExpression([realsense]))
-    )
-
-    rviz_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('go2_rviz'),
-            'launch/'), 'rviz.launch.py']),
-        condition=IfCondition(PythonExpression([rviz]))
-    )
+    def get_rviz_cmd(context):
+        if context.perform_substitution(rviz) == 'True':
+            return [IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('go2_rviz'),
+                    'launch', 'rviz.launch.py')])
+            )]
+        return []
 
     ld = LaunchDescription()
-    ld.add_action(declare_lidar_cmd)
+    ld.add_action(declare_lidar_hesai_cmd)
+    ld.add_action(declare_lidar_livox_cmd)
     ld.add_action(declare_realsense_cmd)
     ld.add_action(declare_rviz_cmd)
-    ld.add_action(robot_description_cmd)
-    ld.add_action(lidar_cmd)
-    ld.add_action(realsense_cmd)
-    ld.add_action(driver_cmd)
-    ld.add_action(rviz_cmd)
+    ld.add_action(OpaqueFunction(function=get_robot_description))
+    ld.add_action(OpaqueFunction(function=get_driver_cmd))
+    ld.add_action(OpaqueFunction(function=get_lidar_hesai_cmd))
+    ld.add_action(OpaqueFunction(function=get_lidar_livox_cmd))
+    ld.add_action(OpaqueFunction(function=get_realsense_cmd))
+    ld.add_action(OpaqueFunction(function=get_rviz_cmd))
 
     return ld

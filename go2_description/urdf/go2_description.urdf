@@ -1214,4 +1214,46 @@ Stephen Brawner (brawner@gmail.com)
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- livox_lidar link and joint -->
+  <link name="livox_lidar">
+    <visual>
+      <origin
+        xyz="0 0 0.03"
+        rpy="0 0 3.14159265359" />
+      <geometry>
+        <mesh
+          filename="package://go2_description/dae/livox_mid360.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.09" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="livox_lidar_joint" type="fixed">
+    <origin xyz="0.155 0 0.09" rpy="0 0.20944 0" />
+    <parent link="base_link" />
+    <child link="livox_lidar" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- livox_frame link and joint -->
+  <link name="livox_frame">
+  </link>
+
+  <joint name="livox_frame_joint" type="fixed">
+    <origin xyz="0 0 0.047" rpy="0 0 0" />
+    <parent link="livox_lidar" />
+    <child link="livox_frame" />
+    <axis xyz="0 0 0" />
+  </joint>
 </robot>
