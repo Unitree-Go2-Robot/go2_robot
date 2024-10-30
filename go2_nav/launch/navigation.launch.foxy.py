@@ -62,7 +62,7 @@ def generate_launch_description():
 
     declare_nav_params_cmd = DeclareLaunchArgument(
         "params_file",
-        default_value=os.path.join(package_dir, "params", "mix_params.yaml"),
+        default_value=os.path.join(package_dir, "params", "go2_nav_params_foxy.yaml"),
     )
 
     declare_namespace_cmd = DeclareLaunchArgument("namespace", default_value="")
