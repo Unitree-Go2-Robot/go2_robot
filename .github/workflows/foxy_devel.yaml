@@ -21,7 +21,7 @@ jobs:
           ros-distro: foxy
 
       - name: Build ROS 2 package
-        uses: ros-tooling/action-ros-ci@0.3.13
+        uses: ros-tooling/action-ros-ci@v0.3
         with:
           package-name: go2_robot go2_description go2_bringup go2_driver go2_hardware go2_simulation unitree_api unitree_go go2_interfaces go2_nav go2_rviz
           target-ros2-distro: foxy
