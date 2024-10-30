@@ -16,12 +16,12 @@ jobs:
         run: sudo apt -y install nlohmann-json3-dev
 
       - name: Setup ROS 2 environment
-        uses: ros-tooling/setup-ros@0.7.9
+        uses: ros-tooling/setup-ros@0.7.5
         with:
           ros-distro: foxy
 
       - name: Build ROS 2 package
-        uses: ros-tooling/action-ros-ci@0.3.15
+        uses: ros-tooling/action-ros-ci@0.3.13
         with:
           package-name: go2_robot go2_description go2_bringup go2_driver go2_hardware go2_simulation unitree_api unitree_go go2_interfaces go2_nav go2_rviz
           target-ros2-distro: foxy
