@@ -38,34 +38,33 @@ def generate_launch_description():
     composable_nodes = []
 
     composable_node = ComposableNode(
-        package='go2_driver',
-        plugin='go2_driver::Go2Driver',
-        name='go2_driver',
-        namespace='',
-
+        package="go2_driver",
+        plugin="go2_driver::Go2Driver",
+        name="go2_driver",
+        namespace="",
     )
     composable_nodes.append(composable_node)
 
     container = ComposableNodeContainer(
-        name='go2_container',
-        namespace='',
-        package='rclcpp_components',
-        executable='component_container',
+        name="go2_container",
+        namespace="",
+        package="rclcpp_components",
+        executable="component_container",
         composable_node_descriptions=composable_nodes,
-        output='screen',
+        output="screen",
     )
 
     pointclod_to_laserscan_cmd = Node(
-        package='pointcloud_to_laserscan',
-        executable='pointcloud_to_laserscan_node',
-        name='pointcloud_to_laserscan',
-        namespace='',
-        output='screen',
-        remappings=[('/cloud_in', '/pointcloud')],
-        parameters=[{
-                'target_frame': 'radar',
-                'transform_tolerance': 0.01,
-            }],
+        package="pointcloud_to_laserscan",
+        executable="pointcloud_to_laserscan_node",
+        name="pointcloud_to_laserscan",
+        namespace="",
+        output="screen",
+        remappings=[
+            ("cloud_in", "pointcloud"),
+            ("scan", "scan"),
+        ],
+        parameters=[{"target_frame": "base_link", "max_height": 0.5}],
     )
 
     ld = LaunchDescription()
