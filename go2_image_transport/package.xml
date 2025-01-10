@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+    <name>go2_image_transport</name>
+    <version>0.1.0</version>
+    <description>Plugin to image_transport to decode Unitree Go2 video stream</description>
+
+    <maintainer email="tfoldi@xsi.hu">Tamas Foldi</maintainer>
+    <license>BSD</license>
+
+    <!-- original author of the plugin -->
+    <author>Clyde McQueen</author>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <test_depend>ament_lint_auto</test_depend>
+
+    <!-- This recursively depends on a set of common linters -->
+    <test_depend>ament_lint_common</test_depend>
+
+    <depend>camera_calibration_parsers</depend>
+    <depend>ffmpeg</depend>
+    <depend>unitree_go</depend>
+    <depend>image_transport</depend>
+    <depend>libavdevice-dev</depend>
+    <depend>pluginlib</depend>
+    <depend>rclcpp</depend>
+
+    <export>
+        <build_type>ament_cmake</build_type>
+        <image_transport plugin="${prefix}/go2_plugins.xml" />
+    </export>
+</package>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>go2_voxelmap</name>
+  <version>0.1.0</version>
+  <description>Voxel map processing for compressed Go2 Voxel Maps</description>
+
+  <maintainer email="tfoldi@xsi.hu">Tamás Földi</maintainer>
+  <license>BSDL-2</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>unitree_go</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

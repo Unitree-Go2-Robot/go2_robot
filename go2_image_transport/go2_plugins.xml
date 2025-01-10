@@ -1,0 +1,10 @@
+<library path="go2_image_transport">
+    <class
+            name="image_transport/go2_sub"
+            type="go2_image_transport::Go2Subscriber"
+            base_class_type="image_transport::SubscriberPlugin">
+        <description>
+            Decodes Go2's h264 video stream.
+        </description>
+    </class>
+</library>

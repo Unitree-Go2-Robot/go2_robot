@@ -30,6 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/BmsCmd.msg"
         "msg/BmsState.msg"
         "msg/Error.msg"
+        "msg/Go2FrontVideoData.msg"
         "msg/HeightMap.msg"
         "msg/IMUState.msg"
         "msg/InterfaceConfig.msg"
@@ -48,6 +49,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/TimeSpec.msg"
         "msg/UwbState.msg"
         "msg/UwbSwitch.msg"
+        "msg/VoxelMapCompressed.msg"
+        "msg/VoxelHeightMapState.msg"
         "msg/WirelessController.msg"
   DEPENDENCIES geometry_msgs
 )
