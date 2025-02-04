@@ -215,4 +215,4 @@ Maintainers:
 
 ## License
 
-This project is licensed under the BSD 3-clause License - see the [LICENSE](https://github.com/IntelligentRoboticsLabs/go2_robot/blob/humble/LICENSE) file for details.
+This project is licensed under the Apache License, Version 2 - see the [LICENSE](https://github.com/Unitree-Go2-Robot/go2_robot/blob/humble/LICENSE) file for details.
