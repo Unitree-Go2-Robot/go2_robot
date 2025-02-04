@@ -1,0 +1,29 @@
+repositories:
+  go2_bringup:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/go2_bringup.git
+    version: humble
+  go2_description:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/go2_description.git
+    version: humble
+  go2_driver:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/go2_driver.git
+    version: humble
+  go2_interfaces:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/go2_interfaces.git
+    version: humble
+  go2_rviz:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/go2_rviz.git
+    version: humble
+  unitree_api:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/unitree_api.git
+    version: main
+  unitree_go:
+    type: git
+    url: https://github.com/Unitree-Go2-Robot/unitree_go.git
+    version: main
