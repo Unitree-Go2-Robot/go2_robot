@@ -1,0 +1,19 @@
+name: Help / Question
+description: Any questions or if you need help
+type: HELP 🙋
+assignees:
+  - Juancams
+body:
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Check this before filling out
+      description: Please note that you have reviewed the following
+      options:
+        - label: "I have checked that this question has not been previously resolved."
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What is your question? What do you need help with?
+    validations:
+      required: true

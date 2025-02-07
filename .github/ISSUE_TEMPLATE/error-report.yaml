@@ -1,0 +1,91 @@
+name: Error Report
+description: Errors that prevent the robot from working
+type: ERROR 🛠️
+assignees:
+  - Juancams
+body:
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Check this before filling out
+      description: Please note that you have reviewed the following
+      options:
+        - label: "I have verified that this error has not been reported by another user."
+        - label: "I have tried to perform the installation again, following the steps."
+        - label: "This error prevents the robot from operating under normal conditions."
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem location
+      description: Where are you finding the problem or where are you launching the system?
+      options:
+        - Robot
+        - My Computer
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: ROS 2 Version
+      description: What version of ros 2 are you using?
+      options:
+        - Foxy 🦊
+        - Humble 🐢
+        - Jazzy 🎺
+      default: 0
+    validations:
+      required: true
+  - type: checkboxes
+    id: packages
+    attributes:
+      label: Package error
+      description: Package where I think the error is located
+      options:
+        - label: go2_bringup
+        - label: go2_description
+        - label: go2_driver
+        - label: go2_hardware
+        - label: go2_interfaces
+        - label: go2_navigation
+        - label: go2_robot
+        - label: go2_rviz
+        - label: go2_simulation
+        - label: go2_tts
+        - label: go2_tts_interfaces
+        - label: go2_voxel_map
+        - label: unitree_api
+        - label: unitree_go
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Do you propose any way to solve this?
+      description: "Please indicate, if you know, how you would solve the bug. If not, leave it blank. Thank you very much!!"

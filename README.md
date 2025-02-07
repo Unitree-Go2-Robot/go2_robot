@@ -1,10 +1,10 @@
 # Unitree GO2 Robot ROS 2
 
 <p align="center">
-<img width="1280" height="420" src="https://github.com/IntelligentRoboticsLabs/go2_robot/assets/44479765/da616d77-cf4d-4acf-af2f-adc99f4f72d7)" alt='Go2 point cloud'>
+<img width="1280" height="420" src="https://github.com/IntelligentRoboticsLabs/go2_robot/assets/44479765/da616d77-cf4d-4acf-af2f-adc99f4f72d7)" alt='Holi'>
 </p>
 
-[![License](https://img.shields.io/badge/license-BSD--3-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![distro](https://img.shields.io/badge/Ubuntu%2022-Jammy%20Jellyfish-green)
 ![distro](https://img.shields.io/badge/ROS2-Humble-blue)
 [![humble](https://github.com/IntelligentRoboticsLabs/go2_robot/actions/workflows/humble.yaml/badge.svg)](https://github.com/IntelligentRoboticsLabs/go2_robot/actions/workflows/humble.yaml)
@@ -23,9 +23,9 @@ In this package is our integration for the Unitee Go2 robot.
 - [x] go2_interfaces
 - [x] Change modes
 - [x] Change configuration for robot
-- [ ] SLAM (working in progress)
-- [ ] Nav2 (working in progress)
-- [ ] Ros2cli
+- [x] SLAM
+- [x] Nav2
+- [ ] Ros2cli (working in progress)
 - [ ] Hardware interface
 - [ ] Gazebo simulation
 
@@ -41,7 +41,13 @@ Create workspace and clone the repository
 ```bash
 mkdir ~/go2_ws/src
 cd ~/go2_ws/src
-git clone https://github.com/IntelligentRoboticsLabs/go2_robot.git -b humble
+git clone https://github.com/Unitree-Go2-Robot/go2_robot.git -b humble
+```
+
+Prepare your thirparty repos:
+```bash
+sudo apt update && sudo apt install ros-dev-tools -y
+vcs import < go2_robot/dependencies.repos
 ```
 
 Install dependencies and build workspace
@@ -206,7 +212,7 @@ Thanks to [unitree](https://github.com/unitreerobotics/unitree_ros2) for providi
 
 ## About
 This is a project made by the [Intelligent Robotics Lab](https://intelligentroboticslab.gsyc.urjc.es/), a research group from the [Universidad Rey Juan Carlos](https://www.urjc.es/).
-Copyright &copy; 2024.
+Copyright &copy; 2025.
 
 Maintainers:
 
@@ -215,4 +221,4 @@ Maintainers:
 
 ## License
 
-This project is licensed under the BSD 3-clause License - see the [LICENSE](https://github.com/IntelligentRoboticsLabs/go2_robot/blob/humble/LICENSE) file for details.
+This project is licensed under the Apache License, Version 2 - see the [LICENSE](https://github.com/Unitree-Go2-Robot/go2_robot/blob/humble/LICENSE) file for details.

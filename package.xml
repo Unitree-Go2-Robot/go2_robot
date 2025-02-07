@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>go2_robot</name>
+  <version>1.0.0</version>
+  <description>The unitree go2 robot package</description>
+  <maintainer email="juancarlos.serrano@urjc.es">Juan Carlos Manzanares Serrano</maintainer>
+  <license>Apache License, Version 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>go2_bringup</depend>
+  <depend>go2_description</depend>
+  <depend>go2_driver</depend>
+  <depend>go2_interfaces</depend>
+  <depend>go2_rviz</depend>
+  <depend>unitree_api</depend>
+  <depend>unitree_go</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
