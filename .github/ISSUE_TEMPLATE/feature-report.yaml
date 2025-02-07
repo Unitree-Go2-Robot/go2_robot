@@ -1,0 +1,57 @@
+name: New Feature
+description: Bug that does not affect normal operation
+type: FEATURE 🚀
+assignees:
+  - Juancams
+body:
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Check this before filling out
+      description: Please note that you have reviewed the following
+      options:
+        - label: "I have checked that the feature I propose is not proposed by someone else."
+        - label: "I have checked that the feature I propose is not already implemented."
+        - label: "I confirm that the feature is my own."
+  - type: checkboxes
+    id: version
+    attributes:
+      label: ROS 2 Version
+      description: Indicate for which versions this feature is
+      options:
+        - label: Foxy 🦊
+        - label: Humble 🐢
+        - label: Jazzy 🎺
+  - type: checkboxes
+    id: packages
+    attributes:
+      label: Packages involved in the feature
+      description: 
+      options:
+        - label: go2_bringup
+        - label: go2_description
+        - label: go2_driver
+        - label: go2_hardware
+        - label: go2_interfaces
+        - label: go2_navigation
+        - label: go2_robot
+        - label: go2_rviz
+        - label: go2_simulation
+        - label: go2_tts
+        - label: go2_tts_interfaces
+        - label: go2_voxel_map
+        - label: unitree_api
+        - label: unitree_go
+        - label: new_package
+  - type: input
+    id: new-packages
+    attributes:
+      label: New packages involved
+      description: Would it be necessary to create any new packages? Please specify the names of these
+  - type: textarea
+    id: new-feature
+    attributes:
+      label: New Feature
+      description: Tell us all about the new feature
+    validations:
+      required: true

@@ -1,0 +1,35 @@
+name: Documentation Report
+description: Errors or suggestions you have for the documentation
+type: DOCS 📚
+assignees:
+  - Juancams
+body:
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Check this before filling out
+      description: Please note that you have reviewed the following
+      options:
+        - label: "I have verified that this has not been reported by another user."
+  - type: dropdown
+    id: version
+    attributes:
+      label: Where?
+      description: Where should I make the change, on the web or in the readme?
+      options:
+        - Web 🌐
+        - README.md 📖
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: section-locaion
+    attributes:
+      label: Section Location
+      description: In which specific section should the change be made?
+  - type: textarea
+    id: error
+    attributes:
+      label: Tell us what you saw and your proposal
+    validations:
+      required: true
