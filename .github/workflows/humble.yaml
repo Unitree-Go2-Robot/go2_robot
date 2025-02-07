@@ -23,8 +23,9 @@ jobs:
       - name: Build ROS 2 package
         uses: ros-tooling/action-ros-ci@v0.3
         with:
-          package-name: go2_robot go2_description go2_bringup go2_driver go2_hardware go2_simulation unitree_api unitree_go go2_interfaces go2_nav go2_rviz
+          package-name: go2_robot go2_description go2_bringup go2_driver unitree_api unitree_go go2_interfaces
           target-ros2-distro: humble
+          vcs-repo-file-url: https://raw.githubusercontent.com/Unitree-Go2-Robot/go2_robot/refs/heads/humble/dependencies.repos
           colcon-defaults: |
             {
               "build": {
