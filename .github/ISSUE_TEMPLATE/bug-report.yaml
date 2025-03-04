@@ -50,9 +50,6 @@ body:
         - label: go2_robot
         - label: go2_rviz
         - label: go2_simulation
-        - label: go2_tts
-        - label: go2_tts_interfaces
-        - label: go2_voxel_map
         - label: unitree_api
         - label: unitree_go
   - type: textarea
