@@ -39,7 +39,7 @@ source /opt/ros/humble/setup.bash
 Create workspace and clone the repository
 
 ```bash
-mkdir ~/go2_ws/src
+mkdir -p ~/go2_ws/src
 cd ~/go2_ws/src
 git clone https://github.com/Unitree-Go2-Robot/go2_robot.git -b humble
 ```
