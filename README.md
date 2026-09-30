@@ -61,7 +61,7 @@ colcon build --symlink-install
 
 Setup the workspace
 ```bash
-source ~/ros2_ws/install/setup.bash
+source ~/go2_ws/install/setup.bash
 ```
 
 ## Sensor installation
